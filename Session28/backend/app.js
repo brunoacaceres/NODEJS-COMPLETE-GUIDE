@@ -52,7 +52,8 @@ app.use((req, res, next) => {
 
 app.use('/graphql', graphqlHttp({
   schema: graphqlSchema,
-  rootValue: graphqlResolver
+  rootValue: graphqlResolver,
+  graphiql: true
 }));
 
 app.use((error, req, res, next) => {
@@ -66,9 +67,9 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(
     // 'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/messages?retryWrites=true'
-    'mongodb://localhost:27017/shop?retryWrites=true'
+    'mongodb://localhost:27017/messages?retryWrites=true'
   )
   .then(result => {
-    app.listen(3000);
+    app.listen(8080);
   })
   .catch(err => console.log(err));
