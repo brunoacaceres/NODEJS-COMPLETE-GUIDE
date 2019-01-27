@@ -21,7 +21,7 @@ module.exports = buildSchema(`
         posts: [Post!]!
     }
 
-    type: AuthData {
+    type AuthData {
         token: String!
         userId: String!
     }
